@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(120deg, #8e44ad, #3498db);
+            background-size: 400% 400%;
+            animation: gradientBackground 15s ease infinite;
+            padding: 20px;
+        }
+
+        @keyframes gradientBackground {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-form h2 {
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 15px;
+            font-size: 16px;
+            color: #333;
+            border: none;
+            border-bottom: 2px solid #ccc;
+            outline: none;
+            background: transparent;
+            transition: 0.3s;
+        }
+
+        .input-group label {
+            position: absolute;
+            top: 12px;
+            left: 15px;
+            font-size: 16px;
+            color: #666;
+            pointer-events: none;
+            transition: 0.3s;
+        }
+
+        .input-group input:focus ~ label,
+        .input-group input:valid ~ label {
+            top: -20px;
+            left: 0;
+            color: #3498db;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .input-group input:focus {
+            border-bottom: 2px solid #3498db;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .links {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .links a {
+            color: #666;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .links a:hover {
+            color: #3498db;
+        }
+
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 20px;
+            }
+            
+            .login-form h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <form class="login-form">
+            <h2>Masuk ke Akun Anda</h2>
+            <div class="input-group">
+                <input type="text" required>
+                <label>Username</label>
+            </div>
+            <div class="input-group">
+                <input type="password" required>
+                <label>Password</label>
+            </div>
+            <button type="submit" class="btn">Login</button>
+            <div class="links">
+                <a href="#">Lupa Password?</a>
+                <a href="#">Daftar Akun Baru</a>
+                <a href="https://pip.kemendikdasmen.go.id/">klik disini</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Animasi input fields
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.classList.add('focused');
+            });
+            
+            input.addEventListener('blur', function() {
+                if (this.value === '') {
+                    this.parentElement.classList.remove('focused');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
